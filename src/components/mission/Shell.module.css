@@ -1,0 +1,98 @@
+.shell {
+  font: 14px/1.5 var(--font-body);
+  background: var(--nbb-bg);
+  color: var(--nbb-text);
+  min-height: 100vh;
+}
+
+.brandbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--nbb-border-strong);
+}
+
+.brand {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--nbb-red);
+  letter-spacing: 1px;
+}
+
+.brand small {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--nbb-text-dim);
+  letter-spacing: 0;
+  margin-left: 14px;
+}
+
+.brandActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.brandBack {
+  color: var(--nbb-text-dim);
+  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid var(--nbb-border);
+  border-radius: 7px;
+  padding: 8px 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandBack:hover,
+.brandBack:focus-visible {
+  border-color: var(--nbb-border-bright);
+  color: var(--nbb-text);
+}
+
+.demoPill {
+  font-size: 11px;
+  color: #ff9bac;
+  background: #30131c;
+  border-radius: 6px;
+  padding: 5px 9px;
+}
+
+.nav {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  background: #130d11;
+}
+
+.navButton {
+  font: inherit;
+  color: #e9dce2;
+  border: 1px solid #633143;
+  background: #28131c;
+  padding: 10px 15px;
+  border-radius: 8px;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navButton[aria-selected='true'] {
+  background: var(--nbb-red-strong);
+  border-color: #ef3354;
+  color: white;
+}
+
+.page {
+  padding: 24px;
+}
+
+.pageFlush {
+  padding: 0;
+}

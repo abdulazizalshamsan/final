@@ -1,0 +1,371 @@
+.room {
+  font: 14px/1.45 var(--font-body);
+  background: #09090b;
+  color: #f4eded;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  isolation: isolate;
+  container-type: inline-size;
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.plane {
+  position: absolute;
+  border: 0;
+  background: none;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  width: 6.4%;
+  aspect-ratio: 1;
+  z-index: 4;
+  filter: drop-shadow(1px 3px 2px #000a);
+  cursor: pointer;
+}
+
+.plane img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(0.12);
+  /* The sprite has no reliable alpha channel — this silhouette mask stands in for real transparency. */
+  clip-path: polygon(
+    56.5% 5%, 58% 6%, 56% 31%, 63.5% 31.5%, 76.5% 29.5%, 77% 31.5%, 60.5% 37%, 58.5% 45.5%,
+    94% 49.5%, 96.5% 47%, 97% 41%, 99% 42%, 98.5% 52%, 72.5% 57.5%, 71.5% 67.5%, 66% 72.5%,
+    60.5% 70%, 60.5% 60.5%, 54.5% 63.5%, 50.5% 77.5%, 44.5% 86.5%, 39% 90%, 34% 87%, 32.5% 79%,
+    35% 69%, 30.5% 67%, 27% 70.5%, 21% 68.5%, 19.5% 63%, 21.5% 56.5%, 24.5% 53.5%, 3% 44.5%,
+    2% 42.5%, 3% 34.5%, 5% 34.5%, 5% 43%, 41% 52%, 47% 38%, 36.5% 31.5%, 35% 28.5%, 48% 31.5%,
+    51.5% 26%
+  );
+}
+
+.selected img {
+  filter: saturate(0.12) drop-shadow(0 0 4px #ffffff) drop-shadow(0 0 9px #eb344b);
+}
+
+.plane:focus-visible {
+  outline: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.badge {
+  position: absolute;
+  top: 12%;
+  right: -2%;
+  background: #130d10;
+  color: #c8bec1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: clamp(8px, 1.3cqw, 16px);
+  width: 1.45em;
+  height: 1.45em;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 1px 4px #000;
+}
+
+.breached .badge {
+  width: auto;
+  min-width: 1.45em;
+  height: auto;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-size: clamp(6px, 0.85cqw, 11px);
+  font-weight: 600;
+  right: -20%;
+  top: 0;
+  background: #a30f28;
+  color: #fff;
+  border: 1px solid #ffe3e8;
+}
+
+.hold .badge {
+  color: #ffd276;
+  background: #392b17;
+}
+
+.selected .badge {
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.metric {
+  position: absolute;
+  top: 15.8%;
+  height: 5.8%;
+  width: 10.5%;
+  background: #130d10;
+  font-size: 3.1cqw;
+  line-height: 1.35;
+  font-weight: 500;
+  padding-left: 0.35%;
+  z-index: 6;
+}
+
+.m0 {
+  left: 24.3%;
+}
+.m1 {
+  left: 40.9%;
+}
+.m2 {
+  left: 57.7%;
+}
+.m3 {
+  left: 74.3%;
+}
+
+.inspector {
+  position: absolute;
+  left: 79.45%;
+  top: 25.1%;
+  width: 19.3%;
+  height: 40.3%;
+  background: linear-gradient(120deg, #201015, #0b090a);
+  border: 1px solid #8f2938;
+  border-radius: 1cqw;
+  padding: 1.1cqw;
+  z-index: 7;
+  font-size: 1.25cqw;
+  overflow: hidden;
+}
+
+.inspector h3 {
+  font-size: 1.4cqw;
+  font-weight: 500;
+  margin: 0 0 0.6cqw;
+}
+
+.inspectorId {
+  color: #ff6b7d;
+  font-size: 1.1cqw;
+}
+
+.inspectorData {
+  display: flex;
+  justify-content: space-between;
+  margin: 1cqw 0;
+  padding: 0.8cqw 0;
+  border-top: 1px solid #592331;
+  border-bottom: 1px solid #592331;
+}
+
+.inspector strong {
+  display: block;
+  font-size: 1.65cqw;
+  font-weight: 500;
+}
+
+.person {
+  padding: 0.55cqw 0;
+  color: #d3c5ca;
+}
+
+.inspectorState {
+  margin-top: 0.7cqw;
+  color: #ff697c;
+  font-size: 1.15cqw;
+}
+
+.weatherPod {
+  position: absolute;
+  z-index: 9;
+  top: 27%;
+  transform: translateX(-50%);
+  border: 1px solid #a1586c;
+  border-radius: 5px;
+  padding: 3px 7px;
+  color: #ffdcdf;
+  background: #250e19e8;
+  font-size: clamp(8px, 1.1cqw, 12px);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.rainzone {
+  position: absolute;
+  z-index: 3;
+  top: 32%;
+  height: 37%;
+  width: 9%;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.6;
+  background: linear-gradient(#8a5a6a33, transparent);
+}
+
+.raindrop {
+  position: absolute;
+  top: -20%;
+  width: 1px;
+  height: 12%;
+  background: linear-gradient(transparent, #d1bfcb);
+  animation: nbb-rain 0.85s linear infinite;
+  transform: rotate(12deg);
+}
+
+.brandMask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18.2%;
+  height: 10.8%;
+  z-index: 10;
+  background: #09090b;
+  color: #e62e4d;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  font-size: 3cqw;
+  font-weight: 600;
+}
+
+.brandMask small {
+  font-size: 0.72cqw;
+  color: #bdabb2;
+  margin-left: 7px;
+  max-width: 60%;
+}
+
+.hit {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  z-index: 8;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.play {
+  left: 33.7%;
+  top: 85%;
+  width: 16.8%;
+  height: 6%;
+}
+.pauseHit {
+  left: 51.6%;
+  top: 85%;
+  width: 7%;
+  height: 6%;
+}
+.resetHit {
+  left: 59.4%;
+  top: 85%;
+  width: 7%;
+  height: 6%;
+}
+
+.hud {
+  padding: 16px 20px;
+  background: #100b0d;
+  border-top: 1px solid #51202c;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #ff667d;
+}
+
+.copy {
+  color: #d8cbd0;
+  margin: 7px 0 13px;
+  min-height: 22px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions button,
+.picker {
+  font: inherit;
+  color: #fff0f3;
+  background: #30111a;
+  border: 1px solid #863043;
+  border-radius: 7px;
+  min-height: 44px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.room button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.approve {
+  background: #592031;
+}
+
+.breachButton {
+  background: #7a152a;
+}
+
+.note {
+  font-size: 11px;
+  color: #bca6ad;
+  margin-top: 12px;
+}
+
+.selection {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.picker {
+  max-width: 100%;
+}
+
+.event {
+  font-size: 12px;
+  color: #cbb4bd;
+  margin-top: 12px;
+}
+
+@keyframes nbb-rain {
+  to {
+    top: 115%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raindrop {
+    animation: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .hud {
+    padding: 12px;
+  }
+  .actions {
+    gap: 6px;
+  }
+  .actions button {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .inspector {
+    border-radius: 5px;
+  }
+}
